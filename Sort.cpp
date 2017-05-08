@@ -62,19 +62,7 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
     int i = left, j = right;
     int tmp;
     int pivot = vec.at( (left + right) / 2 );
-    /*
-    int pivot;
-    
-    if ( vec.size() >= 3 )
-    {
-    	pivot = vec.at(2);
-    }
-    else
-    {
-    	pivot = vec.at( (left + right) / 2 );
 
- 	}
-    */
     /* partition */
     while (i <= j) { 
         while (vec.at(i) < pivot)

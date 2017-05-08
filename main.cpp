@@ -27,6 +27,12 @@ int main()
       	}
    	}
 
+   	BubbleSort bSort;
+   	BubbleSort *ptrBSort = &bSort;
+   	std::vector<int> bSortedVec;
+   	int vecSize2 = vec.size();
+   	bSortedVec = ptrBSort->sortFunc( vec, vec.at(0), vec.at(vecSize2-1) );
+
    	// Creating QuickSort object.
    	QuickSort qSort;
    	QuickSort *ptrQSort = &qSort;
@@ -42,7 +48,9 @@ int main()
     // Creating RecursiveBinarySearch object.
     RecursiveBinarySearch bSearch;
     RecursiveBinarySearch *ptrBSearch = &bSearch;
-    bool bS = ptrBSearch->binarySearch( qSortedVec, mid, start, end );
+    //bool bS = ptrBSearch->binarySearch( qSortedVec, mid, start, end );
+    bool bS = ptrBSearch->binarySearch( bSortedVec, mid, start, end );
+
 
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
 
@@ -57,12 +65,20 @@ int main()
     {
     	std::cout << "false ";
     }
-
+/*
     // Prints the result of the 'quick sorted' array.
     int sortedSize = qSortedVec.size();
    	for ( int i = 0; i < sortedSize; i++ )
    	{
    		std::cout << qSortedVec[i] << " ";
+   	}
+   	std::cout << "\n";
+*/
+    // Prints the result of the 'quick sorted' array.
+    int sortedSize = bSortedVec.size();
+   	for ( int i = 0; i < sortedSize; i++ )
+   	{
+   		std::cout << bSortedVec[i] << " ";
    	}
    	std::cout << "\n";
 

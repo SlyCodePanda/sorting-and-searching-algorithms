@@ -4,7 +4,7 @@
 #include <string>
 
 #include "Sort.h"
-//#include "RecursiveBinarySearch.h"
+#include "RecursiveBinarySearch.h"
 
 int main()
 {
@@ -12,6 +12,7 @@ int main()
     // The user inputs a string of numbers (e.g. "6 4 -2 88 ..etc") and those integers are then put into a vector named 'vec'.
 	std::vector<int> vec;
 	int vecSize = vec.size();
+   int mid = (vec.at(0) + vec.at( vecSize-1 )) / 2;
 
 	std::string line;
    	if ( getline(std::cin, line) )
@@ -34,12 +35,17 @@ int main()
    	std::vector<int> bSortedVec;
    	bSortedVec = ptrBSort->sortFunc( vec, vec.at(0), vec.at(1) );
 
-   	// Creating QuickSort object
+   	// Creating QuickSort object.
    	QuickSort qSort;
    	QuickSort *ptrQSort = &qSort;
    	// Creating new vector that has been 'Quick Sorted'.
    	std::vector<int> qSortedVec;
    	qSortedVec = ptrQSort->sortFunc( vec, 0, vec.size()-1 );
+
+      // Creating RecursiveBinarySearch object.
+      RecursiveBinarySearch bSearch;
+      RecursiveBinarySearch *ptrBSearch = &bSearch;
+      bool bS = ptrBSearch->binarySearch( vec, mid );
 
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
 
@@ -64,6 +70,9 @@ int main()
    		std::cout << qSortedVec[i] << " ";
    	}
    	std::cout << "\n";
+
+      std::cout << "Binary Search Result: \n";
+      std::cout << bS << "\n";
 
 	return 0;
 }

@@ -61,6 +61,8 @@ QuickSort::QuickSort()
 std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) {
     int i = left, j = right;
     int tmp;
+    int pivot = vec.at( (left + right) / 2 );
+    /*
     int pivot;
     
     if ( vec.size() >= 3 )
@@ -72,8 +74,8 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
     	pivot = vec.at( (left + right) / 2 );
 
  	}
+    */
     /* partition */
-    std::cout << "pivot = " << pivot << "\n";
     while (i <= j) { 
         while (vec.at(i) < pivot)
             i++;
@@ -90,9 +92,13 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
 
     /* recursion */
     if (left < j)
-        sortFunc( vec, left, j );
+        return sortFunc( vec, left, j );
     if (i < right)
-        sortFunc( vec, i, right );
+        return sortFunc( vec, i, right );
+    else
+    {
+        return vec;
+    }
 }
 
 // QuickSort class destructor.

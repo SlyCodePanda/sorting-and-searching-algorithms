@@ -12,7 +12,6 @@ int main()
     // The user inputs a string of numbers (e.g. "6 4 -2 88 ..etc") and those integers are then put into a vector named 'vec'.
 	std::vector<int> vec;
 	int vecSize = vec.size();
-   int mid = (vec.at(0) + vec.at( vecSize-1 )) / 2;
 
 	std::string line;
    	if ( getline(std::cin, line) )
@@ -42,10 +41,14 @@ int main()
    	std::vector<int> qSortedVec;
    	qSortedVec = ptrQSort->sortFunc( vec, 0, vec.size()-1 );
 
-      // Creating RecursiveBinarySearch object.
-      RecursiveBinarySearch bSearch;
-      RecursiveBinarySearch *ptrBSearch = &bSearch;
-      bool bS = ptrBSearch->binarySearch( vec, mid );
+    // Creating RecursiveBinarySearch object.
+   	int mid = ( 0 + (vec.size()-1) )  / 2;
+   	int start = 0, end = vec.size() - 1;
+
+   	std::cout << "mid from main: " << mid << std::endl;
+    RecursiveBinarySearch bSearch;
+    RecursiveBinarySearch *ptrBSearch = &bSearch;
+    bool bS = ptrBSearch->binarySearch( qSortedVec, mid, start, end );
 
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
 

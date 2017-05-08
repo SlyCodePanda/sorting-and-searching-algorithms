@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 
-//#include "Sort.h"
+#include "Sort.h"
 //#include "RecursiveBinarySearch.h"
 
 int main()
@@ -26,8 +26,12 @@ int main()
       	}
    	}
 
+   	// Creating BubbleSort object.
+   	BubbleSort bSort;
+   	BubbleSort *ptrBSort = &bSort;
+
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
-   	
+
    	// Print out inputted integers.
    	for ( int i = 0; i < vec.size(); i++ )
    	{

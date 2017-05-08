@@ -20,8 +20,7 @@ BubbleSort::BubbleSort()
 // using the 'Bubble Sort' algorithm.
 std::vector<int> BubbleSort::sortFunc( std::vector<int> vec, int a, int b )
 {
-	int first = a;
-	int sec = b;
+
 	int size = vec.size();
 
 	// Checks to make sure the iterator does not exceed the length of the vector given.

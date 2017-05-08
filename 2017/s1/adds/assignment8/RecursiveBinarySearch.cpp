@@ -24,8 +24,6 @@ bool RecursiveBinarySearch::binarySearch( std::vector<int> vec, int mid, int sta
         { 
             end = mid - 1;
             vec.pop_back();
-
-            std::cout << vec.at(vec.size()-1) << "\n";
             return binarySearch( vec, mid -1, start, end );
         }
 

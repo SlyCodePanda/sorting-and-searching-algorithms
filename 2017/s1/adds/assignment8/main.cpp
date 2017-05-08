@@ -11,8 +11,8 @@ int main()
 
     // The user inputs a string of numbers (e.g. "6 4 -2 88 ..etc") and those integers are then put into a vector named 'vec'.
 	std::vector<int> vec;
-	int vecSize = vec.size();
 
+	// Converts string from input into integer values, and then pushes said values into vector.
 	std::string line;
    	if ( getline(std::cin, line) )
    	{
@@ -27,55 +27,44 @@ int main()
       	}
    	}
 
-   	// Creating BubbleSort object.
-   	BubbleSort bSort;
-   	BubbleSort *ptrBSort = &bSort;
-   	// Creating new vector that has been 'Bubble Sorted'.
-   	std::vector<int> bSortedVec;
-   	bSortedVec = ptrBSort->sortFunc( vec, vec.at(0), vec.at(1) );
-
    	// Creating QuickSort object.
    	QuickSort qSort;
    	QuickSort *ptrQSort = &qSort;
    	// Creating new vector that has been 'Quick Sorted'.
+   	int vecSize = vec.size();
    	std::vector<int> qSortedVec;
-   	qSortedVec = ptrQSort->sortFunc( vec, 0, vec.size()-1 );
+   	qSortedVec = ptrQSort->sortFunc( vec, 0, vecSize-1 );
 
-    // Creating RecursiveBinarySearch object.
+   	// Middle, start, and end positions on the vector.
    	int mid = ( 0 + (vec.size()-1) )  / 2;
    	int start = 0, end = vec.size() - 1;
 
-   	std::cout << "mid from main: " << mid << std::endl;
+    // Creating RecursiveBinarySearch object.
     RecursiveBinarySearch bSearch;
     RecursiveBinarySearch *ptrBSearch = &bSearch;
     bool bS = ptrBSearch->binarySearch( qSortedVec, mid, start, end );
 
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
 
-   	// Print out inputted integers.
-   	std:: cout << "Original list of integers: \n";
-   	for ( int i = 0; i < vec.size(); i++ )
-   	{
-   		std::cout << vec[i] << " ";
-   	}
-   	std::cout << "\n";
+   	// Print out inputted integers and the binary search result.
 
-   	std::cout << "Bubble Sorted integers: \n";
-   	for ( int i = 0; i < bSortedVec.size(); i++ )
-   	{
-   		std::cout << bSortedVec[i] << " ";
-   	}
-   	std::cout << "\n";
+    // Depending on the binary search, print either 'true' or 'false'.
+    if ( bS == 1 )
+    {
+    	std::cout << "true ";
+    }
+    if ( bS == 0 )
+    {
+    	std::cout << "false ";
+    }
 
-   	std::cout << "Quick Sorted integers: \n";
-   	for ( int i = 0; i < qSortedVec.size(); i++ )
+    // Prints the result of the 'quick sorted' array.
+    int sortedSize = qSortedVec.size();
+   	for ( int i = 0; i < sortedSize; i++ )
    	{
    		std::cout << qSortedVec[i] << " ";
    	}
    	std::cout << "\n";
-
-      std::cout << "Binary Search Result: \n";
-      std::cout << bS << "\n";
 
 	return 0;
 }

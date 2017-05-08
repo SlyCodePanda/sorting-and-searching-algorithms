@@ -5,7 +5,7 @@
 class Sort
 {
 	protected:
-		//std::vector<int> vec;
+		// Creating a pure virtual sort function to be overridden in derived classes.
 		virtual std::vector<int> sortFunc( std::vector<int> vec, int a, int b ) = 0;
 
 	public:
@@ -15,23 +15,19 @@ class Sort
 // Class for creating Bubble Sort algorithm, a child class of base class 'Sort'.
 class BubbleSort : public Sort
 {
-	protected:
+	public:
 		std::vector<int> sortFunc( std::vector<int> vec, int a, int b );
 
-	public:
 		BubbleSort();
 		~BubbleSort();
 };
-/*
+
 // Class for creating Quick Sort algorithm, a child class of the base class 'Sort'.
 class QuickSort : public Sort
 {
-	private:
-		int pivot;
-		std::vector<int> sortFunc( std::std::vector<int> vec, int a, int b );
-
 	public:
+		std::vector<int> sortFunc( std::vector<int> vec, int left, int right );
+
 		QuickSort();
 		~QuickSort();
 };
-*/

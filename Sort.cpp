@@ -55,7 +55,6 @@ QuickSort::QuickSort()
 
 }
 
-// Find and set the pivot position to be used in the QuickSort function 'sortFunc'.
 // Takes in a vector, the first integer of that vector and the last integer of that vector.
 std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) {
     int i = left, j = right;
@@ -84,7 +83,7 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
         return sortFunc( vec, i, right );
     else
     {
-        return vec;
+      return vec;
     }
 }
 

@@ -57,34 +57,44 @@ QuickSort::QuickSort()
 
 // Takes in a vector, the first integer of that vector and the last integer of that vector.
 std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) {
-    int i = left, j = right;
-    int tmp;
-    int pivot = vec.at( (left + right) / 2 );
 
-    /* partition */
-    while (i <= j) { 
-        while (vec.at(i) < pivot)
-            i++;
-        while (vec.at(j) > pivot)
-            j--;
-        if (i <= j) {
-            tmp = vec.at(i);
-            vec.at(i) = vec.at(j);
-            vec.at(j) = tmp;
-            i++;
-            j--;
-        }
-    }
-
-    /* recursion */
-    if (left < j)
-        return sortFunc( vec, left, j );
-    if (i < right)
-        return sortFunc( vec, i, right );
-    else
+    if ( left < right ) 
     {
-      return vec;
+        // Partition
+        int i = left -1;
+        int j = right +1;
+        int tmp;
+        int pivot = vec.at( (left + right) / 2 );
+
+        while (i < j)
+        {
+            i += 1;
+            j -= 1;
+
+            while (vec.at(i) < pivot)
+            {
+                i+= 1;
+            }
+            while (vec.at(j) > pivot)
+            {
+                j-= 1;
+            }
+
+            std::cout << "left/i: " << i << " || ";
+            std::cout << "right/j: " << j << "\n";
+
+            if (i < j) 
+            {
+                tmp = vec.at(i);
+                vec.at(i) = vec.at(j);
+                vec.at(j) = tmp;
+            }
+        }
+        // Recursion.    
+        sortFunc( vec, left, j );
+        sortFunc( vec, j+1, right );
     }
+    return vec;
 }
 
 // QuickSort class destructor.

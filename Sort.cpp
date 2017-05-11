@@ -80,9 +80,6 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
                 j-= 1;
             }
 
-            std::cout << "left/i: " << i << " || ";
-            std::cout << "right/j: " << j << "\n";
-
             if (i < j) 
             {
                 tmp = vec.at(i);

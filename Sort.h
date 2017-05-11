@@ -27,6 +27,7 @@ class QuickSort : public Sort
 {
 	public:
 		std::vector<int> sortFunc( std::vector<int> vec, int left, int right );
+		int Partition( std::vector<int> vec, int left, int right );
 
 		QuickSort();
 		~QuickSort();

@@ -56,8 +56,9 @@ QuickSort::QuickSort()
 }
 
 // Takes in a vector, the first integer of that vector and the last integer of that vector.
+// Handles both the partitioning of the vector and the recursive returns all in the one function.
 std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) {
-/* Use this for just singular function.
+
     if ( left < right ) 
     {
         // Partition
@@ -65,20 +66,16 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
         int i = left -1;
         int j = right +1;
         int tmp;
-
+        
         while (i < j)
         {
-            i += 1;
-            j -= 1;
-
-            while (vec.at(i) < pivot)
-            {
-                i+= 1;
-            }
-            while (vec.at(j) > pivot)
-            {
-                j-= 1;
-            }
+            do{
+                i += 1;
+            }while( vec.at(i) < pivot );
+            
+            do{
+                j -= 1;
+            }while( vec.at(j) > pivot );
 
             if (i < j) 
             {
@@ -87,46 +84,12 @@ std::vector<int> QuickSort::sortFunc(std::vector<int> vec, int left, int right) 
                 vec.at(j) = tmp;
             }
         }
+
         // Recursion.    
-        sortFunc( vec, left, j );
-        sortFunc( vec, j+1, right );
+        vec = sortFunc( vec, left, j );
+        vec = sortFunc( vec, j+1, right );
     }
     return vec;
-    */
-    if( left < right )
-    {
-        int p = Partition( vec, left, right );
-
-        sortFunc( vec, left, p );
-        sortFunc( vec, p+1, right );
-
-        return vec;
-    }
-}
-
-int QuickSort::Partition( std::vector<int> vec, int left, int right )
-{
-    int pivot = vec.at( (left + right) / 2 );
-    int i = left -1;
-    int j = right +1;
-
-    while( true )
-    {
-        while( vec.at(i) < pivot )
-            i += 1;
-        while( vec.at(j) > pivot )
-            j -= 1;
-
-        if( i >= j )
-            return j;
-
-        int tmp = vec.at(i);
-        vec.at(i) = vec.at(j);
-        vec.at(j) = tmp;
-
-        i += 1;
-        j -= 1;
-    }
 }
 
 // QuickSort class destructor.

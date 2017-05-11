@@ -3,7 +3,8 @@
 #include <sstream>
 #include <string>
 
-#include "Sort.h"
+//#include "Sort.h"
+#include "Sort2.h"
 #include "RecursiveBinarySearch.h"
 
 int main()
@@ -47,7 +48,7 @@ int main()
 
 /*--------------------------------------OUTPUT-----------------------------------------------------------------------*/
 
-  // Print out inputted integers and the binary search result.
+// Print out inputted integers and the binary search result.
 
   // Depending on the binary search, print either 'true' or 'false'.
   if ( bS == 1 )

@@ -3,8 +3,7 @@
 #include <sstream>
 #include <string>
 
-//#include "Sort.h"
-#include "Sort2.h"
+#include "Sort.h"
 #include "RecursiveBinarySearch.h"
 
 int main()
